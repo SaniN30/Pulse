@@ -1,333 +1,248 @@
-ProductPulse
+# ProductPulse
 
-A production-deployed e-commerce product analytics platform that turns customer, transaction, product, payment, and experiment data into actionable business insights.
+> A production-deployed e-commerce product analytics platform for understanding revenue, conversion, payments, customers, products, and experiment performance.
 
-ProductPulse is a full-stack business analytics platform designed to help e-commerce teams understand where revenue comes from, where customers drop off, which products and customer segments perform best, where payment failures create opportunities, and whether product experiments are delivering meaningful improvements.
+ProductPulse is a full-stack analytics platform designed to transform raw e-commerce event and transaction data into actionable business insights.
 
-The platform combines transactional and behavioral data into a centralized decision-support dashboard.
+It combines a PostgreSQL analytics layer, FastAPI backend, and Next.js dashboard to provide a centralized view of product and business performance.
 
-Live Demo
+## Live Demo
 
-Frontend: https://product-pulse-pink.vercel.app/
+- Frontend: https://product-pulse-pink.vercel.app/
+- API: https://productpulse-1yxk.onrender.com
+- API Docs: https://productpulse-1yxk.onrender.com/docs
 
-API: https://productpulse-1yxk.onrender.com
-
-API Documentation: https://productpulse-1yxk.onrender.com/docs
-
-Business Problem
+## Business Problem
 
 E-commerce businesses generate large volumes of customer, transaction, product, payment, and behavioral data.
 
-However, raw data does not automatically provide clear answers to important business questions.
+However, raw data alone does not provide clear answers to important business questions.
 
-ProductPulse brings these signals together to help identify:
+ProductPulse brings these signals together to help businesses identify:
 
-Revenue trends and sales performance
-
-Conversion losses across the customer journey
-
-Payment failure and recovery opportunities
-
-High-performing products and categories
-
-Customer purchasing behavior
-
-Acquisition-channel performance
-
-Repeat purchasing patterns
-
-Experiment outcomes and business impact
+- Revenue trends and sales performance
+- Conversion losses across the customer journey
+- Payment failure and recovery opportunities
+- High-performing products and categories
+- Customer purchasing behavior
+- Acquisition-channel performance
+- Repeat purchasing patterns
+- Experiment outcomes and business impact
 
 The goal is to transform raw operational data into decision-oriented business insights.
 
-Business Questions ProductPulse Answers
+## Business Questions ProductPulse Answers
 
-Revenue
+### Revenue
 
-How much revenue is being generated?
+- How much revenue is being generated?
+- How are sales changing over time?
+- What is the average order value?
+- How much revenue is generated per purchasing customer?
 
-How are sales changing over time?
+### Conversion
 
-What is the average order value?
+- Where are customers dropping out of the purchase journey?
+- How many visitors progress from product discovery to purchase?
+- Which devices have stronger or weaker conversion performance?
+- Which stage of the funnel represents the largest opportunity?
 
-How much revenue is generated per purchasing customer?
+### Payments
 
-Conversion
+- How many payment attempts fail?
+- Which payment methods experience the most failures?
+- What proportion of failed payments can potentially be recovered?
+- How much revenue could be recovered through improved payment recovery?
 
-Where are customers dropping out of the purchase journey?
+### Products
 
-How many visitors progress from product discovery to purchase?
+- Which products generate the most revenue?
+- Which categories perform best?
+- Which products generate stronger estimated gross profit?
+- Which categories have higher or lower gross margins?
 
-Which devices have stronger or weaker conversion performance?
+### Customers
 
-Which stage of the funnel represents the largest opportunity?
+- How many customers are purchasing?
+- Which customer segments are most valuable?
+- How frequently do customers return to purchase?
+- Which acquisition channels bring customers into the business?
 
-Payments
+### Experiments
 
-How many payment attempts fail?
+- Does the treatment group outperform the control group?
+- How large is the improvement?
+- Is the observed improvement statistically significant?
+- Should the experiment be considered for rollout?
 
-Which payment methods experience the most failures?
+## What ProductPulse Provides
 
-What proportion of failed payments can potentially be recovered?
+### Revenue Analytics
 
-How much revenue could be recovered through improved payment recovery?
+- Total revenue
+- Total orders
+- Average order value
+- Revenue per customer
+- Monthly revenue trends
 
-Products
+### Conversion Analytics
 
-Which products generate the most revenue?
+- Visitor → product view
+- Product view → cart
+- Cart → checkout
+- Checkout → payment
+- Payment → purchase
+- Device-level conversion performance
 
-Which categories perform best?
+### Payment Analytics
 
-Which products generate stronger estimated gross profit?
+- Payment attempts
+- Successful payments
+- Failed payments
+- Payment failure rates
+- Payment-method performance
 
-Which categories have higher or lower gross margins?
+### Product Analytics
 
-Customers
+- Product performance
+- Units sold
+- Revenue
+- Estimated gross profit
+- Category-level performance
+- Gross margin
 
-How many customers are purchasing?
+### Customer Analytics
 
-Which customer segments are most valuable?
+- Purchasing customers
+- Customer segments
+- Average customer revenue
+- Repeat purchase rate
+- Acquisition-channel performance
 
-How frequently do customers return to purchase?
+### Experiment Analytics
 
-Which acquisition channels bring customers into the business?
+- Control vs treatment performance
+- Payment recovery rate
+- Recovered revenue
+- Absolute lift
+- Relative lift
+- Statistical significance
+- Experiment recommendation
 
-Experiments
+## Dashboard Preview
 
-Does the treatment group outperform the control group?
+### Overview
 
-How large is the improvement?
+![ProductPulse Overview](docs/images/overview.png)
 
-Is the observed improvement statistically significant?
+### Conversion Analytics
 
-Should the experiment be considered for rollout?
+![ProductPulse Conversion Analytics](docs/images/conversion.png)
 
-What ProductPulse Provides
+### Payment Analytics
 
-Revenue Analytics
+![ProductPulse Payment Analytics](docs/images/payments.png)
 
-Total revenue
+### Product Analytics
 
-Total orders
+![ProductPulse Product Analytics](docs/images/products.png)
 
-Average order value
+### Customer Analytics
 
-Revenue per customer
+![ProductPulse Customer Analytics](docs/images/customers.png)
 
-Monthly revenue trends
+### Experiment Analytics
 
-Conversion Analytics
+![ProductPulse Experiment Analytics](docs/images/experiments.png)
 
-Visitor → product view
-
-Product view → cart
-
-Cart → checkout
-
-Checkout → payment
-
-Payment → purchase
-
-Device-level conversion performance
-
-Payment Analytics
-
-Payment attempts
-
-Successful payments
-
-Failed payments
-
-Payment failure rates
-
-Payment-method performance
-
-Product Analytics
-
-Product performance
-
-Units sold
-
-Revenue
-
-Estimated gross profit
-
-Category-level performance
-
-Gross margin
-
-Customer Analytics
-
-Purchasing customers
-
-Customer segments
-
-Average customer revenue
-
-Repeat purchase rate
-
-Acquisition-channel performance
-
-Experiment Analytics
-
-Control vs treatment performance
-
-Payment recovery rate
-
-Recovered revenue
-
-Absolute lift
-
-Relative lift
-
-Statistical significance
-
-Experiment recommendation
-
-Dashboard Preview
-
-Overview
-
-
-
-Conversion Analytics
-
-
-
-Payment Analytics
-
-
-
-Product Analytics
-
-
-
-Customer Analytics
-
-
-
-Experiment Analytics
-
-
-
-Key Business Insights
+## Key Business Insights
 
 ProductPulse converts raw e-commerce data into metrics that can support business decisions.
 
-Revenue Performance
+### Revenue Performance
 
 Revenue and order metrics provide a high-level view of overall commercial performance and help identify changes in sales trends.
 
-Funnel Optimization
+### Funnel Optimization
 
 The conversion funnel helps identify the stages where potential customers are lost, allowing teams to focus optimization efforts on the largest points of friction.
 
-Payment Recovery
+### Payment Recovery
 
 Payment analytics highlight failed transactions and recovery opportunities. This allows businesses to quantify the potential value of improving payment recovery.
 
-Product Profitability
+### Product Profitability
 
 Product and category analytics combine sales performance with estimated gross profit and gross margin to provide a broader view than revenue alone.
 
-Customer Value
+### Customer Value
 
 Customer segmentation, repeat purchase behavior, and acquisition-channel analysis help identify differences in customer value and purchasing behavior.
 
-Experiment Decisions
+### Experiment Decisions
 
 The experimentation module compares control and treatment groups and evaluates statistical significance, helping distinguish meaningful improvements from random variation.
 
-Experiment Analysis
+## Experiment Analysis
 
 One of the core business-analysis capabilities of ProductPulse is payment recovery experimentation.
 
 The platform compares:
 
+```text
 Control Group
       vs
 Treatment Group
+```
 
 and calculates:
 
-Recovery rate
-
-Absolute lift
-
-Relative lift
-
-Z-statistic
-
-P-value
-
-Statistical significance
-
-Experiment recommendation
+- Recovery rate
+- Absolute lift
+- Relative lift
+- Z-statistic
+- P-value
+- Statistical significance
+- Experiment recommendation
 
 The resulting analysis can support a business decision such as:
 
+```text
 SHIP
+```
 
 or:
 
+```text
 DO NOT SHIP YET
+```
 
 This moves the dashboard beyond descriptive reporting toward evidence-based experimentation.
 
-Data Scale
+## Data Scale
 
 The analytics database currently contains:
 
-Dataset
-
-Records
-
-Users
-
-50,000
-
-Products
-
-5,000
-
-Categories
-
-7
-
-Sessions
-
-150,000
-
-Events
-
-455,558
-
-Orders
-
-50,000
-
-Order Items
-
-124,683
-
-Payments
-
-50,000
-
-Returns
-
-7,457
-
-Experiment Recovery Records
-
-1,484
+| Dataset | Records |
+|---|---:|
+| Users | 50,000 |
+| Products | 5,000 |
+| Categories | 7 |
+| Sessions | 150,000 |
+| Events | 455,558 |
+| Orders | 50,000 |
+| Order Items | 124,683 |
+| Payments | 50,000 |
+| Returns | 7,457 |
+| Experiment Recovery Records | 1,484 |
 
 The dataset is generated deterministically to support reproducible analytics development and testing.
 
-Data Model
+## Data Model
 
 The platform works with interconnected business entities including:
 
+```text
 Users
   |
   +---- Sessions
@@ -351,69 +266,54 @@ Experiments
   +---- Experiment Assignments
   |
   +---- Payment Recovery Records
+```
 
 This structure allows business metrics to be analyzed across customers, products, transactions, payments, and behavioral events.
 
-Technology Stack
+## Technology Stack
 
 ProductPulse is implemented as a full-stack analytics application.
 
-Frontend
+### Frontend
 
-Next.js
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Recharts
+- Lucide Icons
 
-React
+### Backend
 
-TypeScript
+- Python
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Psycopg
 
-Tailwind CSS
+### Data / Analytics
 
-Recharts
+- PostgreSQL
+- SQL analytics
+- Pandas
+- NumPy
+- Faker
+- Deterministic synthetic dataset generation
 
-Lucide Icons
+### Infrastructure
 
-Backend
+- Vercel — frontend deployment
+- Render — backend deployment
+- Supabase — managed PostgreSQL
+- GitHub — source control
 
-Python
+## Architecture
 
-FastAPI
+![ProductPulse Architecture](docs/images/architecture.png)
 
-SQLAlchemy
+ProductPulse uses a separated frontend, backend, and database architecture:
 
-PostgreSQL
-
-Psycopg
-
-Data & Analytics
-
-PostgreSQL
-
-SQL analytics
-
-Pandas
-
-NumPy
-
-Faker
-
-Deterministic synthetic data generation
-
-Infrastructure
-
-Vercel — frontend deployment
-
-Render — backend deployment
-
-Supabase — managed PostgreSQL
-
-GitHub — source control
-
-Architecture
-
-
-
-ProductPulse follows a separated frontend, backend, and database architecture:
-
+```text
                          ProductPulse
                               |
                 +-------------+-------------+
@@ -440,11 +340,13 @@ ProductPulse follows a separated frontend, backend, and database architecture:
                              |
                              v
                      Business Insights
+```
 
-API
+## API
 
 The FastAPI backend exposes analytics endpoints including:
 
+```text
 GET /api/health
 GET /api/overview
 GET /api/revenue
@@ -458,80 +360,103 @@ GET /api/customer-segments
 GET /api/repeat-rate
 GET /api/experiment
 GET /api/experiment/statistics
+```
 
-Interactive API documentation:
+Interactive API documentation is available through FastAPI Swagger UI:
 
 https://productpulse-1yxk.onrender.com/docs
 
-Local Development
+## Local Development
 
-Prerequisites
+### Prerequisites
 
-Python 3.11+
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL
+- Git
 
-Node.js 18+
-
-PostgreSQL
-
-Git
-
-Backend
+### Backend
 
 From the project root:
 
+```powershell
 python -m venv .venv
+```
 
 Activate the environment.
 
 Windows:
 
+```powershell
 .venv\Scripts\Activate.ps1
+```
 
 Install dependencies:
 
+```powershell
 pip install -r backend/requirements.txt
+```
 
-Create a .env file in the project root:
+Create a `.env` file in the project root:
 
+```env
 DATABASE_URL=postgresql+psycopg://postgres:YOUR_PASSWORD@localhost:5432/productpulse
+```
 
 Start the API:
 
+```powershell
 python -m uvicorn backend.app.main:app --reload
+```
 
 API:
 
+```text
 http://127.0.0.1:8000
+```
 
 Swagger:
 
+```text
 http://127.0.0.1:8000/docs
+```
 
-Frontend
+### Frontend
 
+```powershell
 cd frontend
 npm install
+```
 
 Create:
 
+```text
 frontend/.env.local
+```
 
 with:
 
+```env
 NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
+```
 
 Run:
 
+```powershell
 npm run dev
+```
 
 Open:
 
+```text
 http://localhost:3000
+```
 
-Production Deployment
+## Production Deployment
 
 ProductPulse uses a separated production architecture:
 
+```text
 GitHub
   |
   +---- frontend/ ----> Vercel
@@ -541,41 +466,33 @@ GitHub
                          v
                     Supabase
                     PostgreSQL
+```
 
 The frontend communicates with the backend through HTTPS.
 
-Production database credentials are configured through deployment environment variables and are not committed to source control.
+Production database credentials are stored as deployment environment variables and are not committed to the repository.
 
-Testing & CI
+## Testing & CI
 
 ProductPulse includes automated backend API tests covering:
 
-Health checks
-
-Revenue analytics
-
-Overview metrics
-
-Conversion funnel
-
-Device analytics
-
-Payment analytics
-
-Product endpoints
-
-Query parameter validation
-
-Customer analytics
-
-Experiment analytics
-
-Experiment statistics
+- Health checks
+- Revenue analytics
+- Overview metrics
+- Conversion funnel
+- Device analytics
+- Payment analytics
+- Product endpoints
+- Query parameter validation
+- Customer analytics
+- Experiment analytics
+- Experiment statistics
 
 The backend test suite currently contains 16 automated tests.
 
 GitHub Actions is configured to run automated checks on pushes and pull requests.
 
+```text
 GitHub Push / Pull Request
           |
           v
@@ -586,80 +503,63 @@ GitHub Push / Pull Request
     v            v
 Backend Tests   Frontend Checks
    pytest       lint / build
+```
 
-Security
+## Security
 
 Secrets are intentionally excluded from source control.
 
 The repository ignores:
 
+```text
 .env
 .env.local-backup
 *.dump
 node_modules/
 .next/
 __pycache__/
+```
 
 Production database credentials are configured through the hosting provider's environment-variable system.
 
-Engineering Highlights
+## Engineering Highlights
 
 Although ProductPulse is primarily positioned as a business analytics project, it was implemented as a complete working product rather than a static visualization.
 
-Key areas include:
+Key engineering areas include:
 
-Business metric design
+- Business metric design
+- Relational data modeling
+- SQL-based analytics
+- REST API design
+- Service-layer separation
+- Statistical experiment analysis
+- Reproducible synthetic data generation
+- Production PostgreSQL deployment
+- Cloud database migration
+- Environment-based configuration
+- CORS configuration
+- Production frontend/backend separation
+- Automated backend testing
+- GitHub Actions CI
 
-Relational data modeling
-
-SQL-based analytics
-
-REST API development
-
-Service-layer architecture
-
-Statistical experiment analysis
-
-Reproducible synthetic data generation
-
-Production PostgreSQL deployment
-
-Cloud database migration
-
-Environment-based configuration
-
-Production frontend/backend separation
-
-Automated backend testing
-
-GitHub Actions CI
-
-Future Improvements
+## Future Improvements
 
 Potential future iterations include:
 
-Authentication and role-based access control
+- Authentication and role-based access control
+- Date-range filtering
+- Custom dashboard configuration
+- Automated anomaly detection
+- Scheduled reports
+- Advanced cohort analysis
+- Retention analysis
+- Customer lifetime value modeling
+- Automated alerts
+- Expanded CI/CD test coverage
 
-Date-range filtering
+## Author
 
-Custom dashboard configuration
-
-Automated anomaly detection
-
-Scheduled reports
-
-Advanced cohort analysis
-
-Retention analysis
-
-Customer lifetime value modeling
-
-Automated alerts
-
-Expanded CI/CD test coverage
-
-Author
-
-Asmit Sharma
+**Asmit Sharma**
 
 Built as a full-stack product analytics engineering project focused on turning e-commerce data into actionable business insights.
