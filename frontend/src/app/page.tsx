@@ -3,9 +3,6 @@
 import { useEffect, useState } from "react";
 
 import {
-  CreditCard,
-  DollarSign,
-  ShoppingCart,
   TrendingUp,
   Users,
 } from "lucide-react";
