@@ -62,6 +62,35 @@ It combines a PostgreSQL analytics layer, FastAPI backend, and Next.js dashboard
 
 ---
 
+## Dashboard Preview
+
+### Overview
+
+![ProductPulse Overview](docs/images/overview.png)
+
+### Conversion Analytics
+
+![ProductPulse Conversion Analytics](docs/images/conversion.png)
+
+### Payment Analytics
+
+![ProductPulse Payment Analytics](docs/images/payments.png)
+
+### Product Analytics
+
+![ProductPulse Product Analytics](docs/images/products.png)
+
+### Customer Analytics
+
+![ProductPulse Customer Analytics](docs/images/customers.png)
+
+### Experiment Analytics
+
+![ProductPulse Experiment Analytics](docs/images/experiments.png)
+
+---
+
+
 ## Architecture
 
 ![ProductPulse Architecture](docs/images/architecture.png)
