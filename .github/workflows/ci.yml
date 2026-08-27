@@ -9,9 +9,12 @@ on:
       - main
 
 jobs:
-  backend-tests:
+    backend-tests:
     name: Backend Tests
     runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: postgresql+psycopg://postgres:test_password@localhost:5432/testdb
 
     steps:
       - name: Checkout repository
