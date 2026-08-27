@@ -64,6 +64,8 @@ It combines a PostgreSQL analytics layer, FastAPI backend, and Next.js dashboard
 
 ## Architecture
 
+![ProductPulse Architecture](docs/images/architecture.png)
+
 ```text
                          ProductPulse
                               |
