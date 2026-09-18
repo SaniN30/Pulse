@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+import Link from "next/link";
+
 import {
   BarChart3,
   CheckCircle2,
@@ -247,13 +249,13 @@ export default function CustomersPage() {
 
         <nav className="space-y-1 p-4">
 
-          <a
+          <Link
             href="/"
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-500 hover:bg-slate-50"
           >
             <LayoutDashboard className="h-4 w-4" />
             Overview
-          </a>
+          </Link>
 
 
           <a
