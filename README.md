@@ -12,6 +12,8 @@ It combines a PostgreSQL analytics layer, FastAPI backend, and Next.js dashboard
 - API: https://productpulse-1yxk.onrender.com
 - API Docs: https://productpulse-1yxk.onrender.com/docs
 
+The primary deployment target is a single Vercel project (root `vercel.json`) serving both the frontend and backend as same-origin services; the URLs above reflect the prior split Vercel/Render setup, which remains available as a legacy fallback path (see [Production Deployment](#production-deployment)).
+
 ## Business Problem
 
 E-commerce businesses generate large volumes of customer, transaction, product, payment, and behavioral data.
@@ -302,16 +304,16 @@ ProductPulse is implemented as a full-stack analytics application.
 
 ### Infrastructure
 
-- Vercel — frontend deployment
-- Render — backend deployment
+- Vercel — unified multi-service deployment (frontend + backend, path-routed via root `vercel.json`)
 - Supabase — managed PostgreSQL
 - GitHub — source control
+- Render — legacy backend fallback deployment (see `render.yaml`)
 
 ## Architecture
 
 ![ProductPulse Architecture](docs/images/architecture.png)
 
-ProductPulse uses a separated frontend, backend, and database architecture:
+ProductPulse uses a separated frontend, backend, and database architecture, deployed as one Vercel project with path-based routing (`/api/*` to the backend, everything else to the frontend):
 
 ```text
                          ProductPulse
@@ -320,7 +322,7 @@ ProductPulse uses a separated frontend, backend, and database architecture:
                 |                           |
                 v                           v
         Next.js Frontend              FastAPI Backend
-             Vercel                      Render
+                    (single Vercel project)
                 |                           |
                 | HTTPS API                 |
                 +------------+--------------+
@@ -454,21 +456,24 @@ http://localhost:3000
 
 ## Production Deployment
 
-ProductPulse uses a separated production architecture:
+ProductPulse deploys as a single Vercel project with path-based routing to two services, defined in the root `vercel.json`:
 
 ```text
 GitHub
   |
-  +---- frontend/ ----> Vercel
+  v
+Vercel (one project)
   |
-  +---- backend/ -----> Render
+  +---- frontend/ ----> Next.js service ("/" -> frontend)
+  |
+  +---- backend/ ------> FastAPI service ("/api/*" -> backend)
                          |
                          v
                     Supabase
                     PostgreSQL
 ```
 
-The frontend communicates with the backend through HTTPS.
+The frontend calls the backend same-origin through the `/api/*` rewrite, so no CORS configuration is required in production. `render.yaml` remains in the repository as a legacy fallback path for deploying the backend on Render independently; see `AGENTS.md` for the sharp edges of the current Vercel setup.
 
 Production database credentials are stored as deployment environment variables and are not committed to the repository.
 
